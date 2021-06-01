@@ -31,11 +31,11 @@ if len(sys.argv) != 2:
 
 # Get mode, take appropriate action
 mode = sys.argv[1]
-if mode == 'pads':
+if mode == 'pads' or mode == '1':
 	pads.printPads()
-elif mode == 'generate':
+elif mode == 'generate' or mode == '2':
 	gen.genPad()
-elif mode == 'encrypt':
+elif mode == 'encrypt' or mode == '3':
 	pad_exists = pads.printPads('outpad')
 	if pad_exists:
 		name = input("Please choose an outpad to encrypt your message: ")
@@ -43,7 +43,7 @@ elif mode == 'encrypt':
 		pads.chop(name, 'outpad')
 	else:
 		print("There are no outpads. Generate one.")
-elif mode == 'decrypt':
+elif mode == 'decrypt' or mode == '4':
 	pad_exists = pads.printPads('inpad')
 	if pad_exists:
 		name = input("Please choose an inpad to decrypt your message: ")
